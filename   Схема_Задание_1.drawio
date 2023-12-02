@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-12-02T17:54:27.819Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15" etag="stcU1Aj0gIp9xX9kegrx" version="22.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-02T18:02:00.828Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15" etag="2Uan2RNDQnFk773cuGK7" version="22.1.5" type="github">
   <diagram name="Страница — 1" id="l7LQyPdu3lHHylM9o-vb">
-    <mxGraphModel dx="2409" dy="1215" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2474" dy="1279" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -118,7 +118,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-35" value="Albums" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-1040" y="240" width="180" height="150" as="geometry" />
+          <mxGeometry x="-1030" y="300" width="180" height="150" as="geometry" />
         </mxCell>
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-36" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="HRSi-RAz98DU6cZ2b0Zd-35">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
@@ -273,7 +273,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-124" value="&lt;h2&gt;&lt;font color=&quot;#ff0000&quot; style=&quot;font-size: 24px;&quot;&gt;*&lt;/font&gt;&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-1080" y="358" width="60" height="30" as="geometry" />
+          <mxGeometry x="-1080" y="420" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-126" value="&lt;h2&gt;&lt;font color=&quot;#ff0000&quot; style=&quot;font-size: 24px;&quot;&gt;*&lt;/font&gt;&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-530" y="100" width="60" height="30" as="geometry" />
@@ -290,8 +290,13 @@
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HRSi-RAz98DU6cZ2b0Zd-20" target="HRSi-RAz98DU6cZ2b0Zd-9">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="HRSi-RAz98DU6cZ2b0Zd-145" value="album_id: integer" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-645" y="384" width="150" height="30" as="geometry">
+            <mxRectangle width="150" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-138" value="ArtistAlbum" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-690" y="250" width="180" height="90" as="geometry" />
+          <mxGeometry x="-674" y="324" width="180" height="90" as="geometry" />
         </mxCell>
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-139" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="HRSi-RAz98DU6cZ2b0Zd-138">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
@@ -316,11 +321,6 @@
         </mxCell>
         <mxCell id="HRSi-RAz98DU6cZ2b0Zd-144" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;" vertex="1" parent="HRSi-RAz98DU6cZ2b0Zd-142">
           <mxGeometry x="30" width="150" height="30" as="geometry">
-            <mxRectangle width="150" height="30" as="alternateBounds" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="HRSi-RAz98DU6cZ2b0Zd-145" value="album_id: integer" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-660" y="310" width="150" height="30" as="geometry">
             <mxRectangle width="150" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
