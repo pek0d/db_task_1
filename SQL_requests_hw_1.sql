@@ -10,7 +10,7 @@ create table if not exists Genres (
 
 create table if not exists ArtistGenre (
 	artist_id INTEGER references Artists(id),
-	genre_id INTEGER references Generes(id),
+	genre_id INTEGER references Genres(id),
 	constraint pk primary key (artist_id, genre_id) 
 );
 
