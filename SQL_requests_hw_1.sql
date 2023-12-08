@@ -23,7 +23,7 @@ create table if not exists Albums (
 create table if not exists ArtistAlbum (
 	artist_id INTEGER references Artists(id),
 	album_id INTEGER references Albums(id),
-	constraint pk primary key (artist_id, album_id) 
+	constraint pk1 primary key (artist_id, album_id) 
 );
 
 create table if not exists Tracks (
@@ -35,7 +35,7 @@ create table if not exists Tracks (
 create table if not exists AlbumTracks (
 	track_id INTEGER references Tracks(id),
 	album_id INTEGER references Albums(id),
-	constraint pk primary key (tracks_id, album_id) 
+	constraint pk2 primary key (track_id, album_id) 
 );
 
 create table if not exists Compilations (
