@@ -37,3 +37,13 @@ INSERT INTO tracks (id, name, duration)
 VALUES (4,'Just be', 234);
 INSERT INTO tracks (id, name, duration)
 VALUES (5,'baby mama', 187);
+
+-- Добавление в БД таблицы Compilations
+INSERT INTO compilations (name, release_year)
+VALUES ('compilation one', 2003);
+INSERT INTO compilations (name, release_year)
+VALUES ('serenity', 2005);
+INSERT INTO compilations (name, release_year)
+VALUES ('dual', 2004);
+INSERT INTO compilations (name, release_year)
+VALUES ('trinity', 2002);
