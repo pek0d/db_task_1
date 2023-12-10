@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS Albums (id SERIAL PRIMARY KEY,name varchar (60) NOT N
 
 CREATE TABLE IF NOT EXISTS ArtistAlbum (artist_id INTEGER REFERENCES Artists(id), album_id INTEGER REFERENCES Albums(id),CONSTRAINT pk1 PRIMARY KEY (artist_id,album_id));
 
-CREATE TABLE IF NOT EXISTS Tracks (id SERIAL PRIMARY KEY, name varchar (60) NOT NULL, duration TIME NOT NULL);
+CREATE TABLE IF NOT EXISTS Tracks (id SERIAL PRIMARY KEY, name varchar (60) NOT NULL, duration INTEGER NOT NULL);
 
 CREATE TABLE IF NOT EXISTS AlbumTracks (track_id INTEGER REFERENCES Tracks(id), album_id INTEGER REFERENCES Albums(id), CONSTRAINT pk2 PRIMARY KEY (track_id,album_id));
 
