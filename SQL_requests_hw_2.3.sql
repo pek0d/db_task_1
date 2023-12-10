@@ -18,7 +18,9 @@ FROM albumtracks
 JOIN tracks ON albumtracks.track_id = tracks.id
 JOIN albums ON albumtracks.album_id = albums.id
 GROUP BY albums.name;
+
 -- Все исполнители, которые не выпустили альбомы в 2020 году.
+
 
 -- Названия сборников, в которых присутствует конкретный исполнитель (выберите его сами).
 SELECT c.name AS compilation_name
