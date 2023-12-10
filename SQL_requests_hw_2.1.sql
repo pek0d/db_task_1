@@ -41,42 +41,46 @@ INSERT INTO tracks (id, name, duration)
 VALUES (6,'Say my name', 194);
 
 -- наполнение таблицы albumtracks
-INSERT INTO public.albumtracks
+INSERT INTO albumtracks
 (track_id, album_id)
 VALUES(1, 1);
-INSERT INTO public.albumtracks
+INSERT INTO albumtracks
 (track_id, album_id)
 VALUES(5, 3);
-INSERT INTO public.albumtracks
+INSERT INTO albumtracks
 (track_id, album_id)
 VALUES(4, 1);
-INSERT INTO public.albumtracks
+INSERT INTO albumtracks
 (track_id, album_id)
 VALUES(6, 3);
-INSERT INTO public.albumtracks
+INSERT INTO albumtracks
 (track_id, album_id)
 VALUES(3, 3);
 
 -- наполнение таблицы artistgenre
-INSERT INTO public.artistgenre
+INSERT INTO artistgenre
 (artist_id, genre_id)
 VALUES(1, 1);
-INSERT INTO public.artistgenre
+INSERT INTO artistgenre
 (artist_id, genre_id)
 VALUES(5, 3);
-INSERT INTO public.artistgenre
+INSERT INTO artistgenre
 (artist_id, genre_id)
 VALUES(2, 1);
-INSERT INTO public.artistgenre
+INSERT INTO artistgenre
 (artist_id, genre_id)
 VALUES(3, 1);
 
 -- наполнение таблицы Compilations
-INSERT INTO compilations (name, release_year)
-VALUES ('compilation one', 2020);
-INSERT INTO compilations (name, release_year)
-VALUES ('serenity', 2018);
-INSERT INTO compilations (name, release_year)
-VALUES ('dual', 2022);
-INSERT INTO compilations (name, release_year)
-VALUES ('trinity', 2019);
+INSERT INTO compilations
+(track_id, "name", release_year)
+VALUES(6, 'compilation one', 2020);
+INSERT INTO compilations
+(track_id, "name", release_year)
+VALUES(1, 'serenity', 2018);
+INSERT INTO compilations
+(track_id, "name", release_year)
+VALUES(5, 'dual', 2022);
+INSERT INTO compilations
+(track_id, "name", release_year)
+VALUES(2, 'trinity', 2019);
