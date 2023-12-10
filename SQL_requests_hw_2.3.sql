@@ -21,3 +21,11 @@ GROUP BY albums.name;
 -- Все исполнители, которые не выпустили альбомы в 2020 году.
 
 -- Названия сборников, в которых присутствует конкретный исполнитель (выберите его сами).
+SELECT c.name AS compilation_name
+FROM Compilations c
+WHERE EXISTS (
+    SELECT 1
+    FROM tracks t
+    JOIN artists a ON t.id = a.id
+    WHERE t.name = 'baby mama' AND a.name = 'Скриптонит' AND c.track_id = t.id
+);
