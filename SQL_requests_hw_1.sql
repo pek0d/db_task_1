@@ -16,7 +16,8 @@ CONSTRAINT pk PRIMARY KEY (artist_id,genre_id));
 CREATE TABLE IF NOT EXISTS Albums (
   id SERIAL PRIMARY KEY,
   name varchar (60) NOT NULL, 
-  release_year INTEGER NOT NULL);
+  release_year INTEGER CHECK (release_year >= 1000 AND release_year <= 9999)
+);
 
 CREATE TABLE IF NOT EXISTS ArtistAlbum (
   artist_id INTEGER REFERENCES Artists(id), 
