@@ -1,46 +1,15 @@
-create table if not exists Artists (
-	id SERIAL primary key,
-	name varchar (60) not null
-);
+CREATE TABLE IF NOT EXISTS Artists (id SERIAL PRIMARY KEY,name varchar (60) NOT NULL);
 
-create table if not exists Genres (
-	id SERIAL primary key,
-	name varchar (60) not null
-);
+CREATE TABLE IF NOT EXISTS Genres (id SERIAL PRIMARY KEY,name varchar (60) NOT NULL);
 
-create table if not exists ArtistGenre (
-	artist_id INTEGER references Artists(id),
-	genre_id INTEGER references Genres(id),
-	constraint pk primary key (artist_id, genre_id) 
-);
+CREATE TABLE IF NOT EXISTS ArtistGenre (artist_id INTEGER REFERENCES Artists(id), genre_id INTEGER REFERENCES Genres(id),CONSTRAINT pk PRIMARY KEY (artist_id,genre_id));
 
-create table if not exists Albums (
-	id SERIAL primary key,
-	name varchar (60) not null,
-	release_year INTEGER not null
-);
+CREATE TABLE IF NOT EXISTS Albums (id SERIAL PRIMARY KEY,name varchar (60) NOT NULL, release_year INTEGER NOT NULL);
 
-create table if not exists ArtistAlbum (
-	artist_id INTEGER references Artists(id),
-	album_id INTEGER references Albums(id),
-	constraint pk1 primary key (artist_id, album_id) 
-);
+CREATE TABLE IF NOT EXISTS ArtistAlbum (artist_id INTEGER REFERENCES Artists(id), album_id INTEGER REFERENCES Albums(id),CONSTRAINT pk1 PRIMARY KEY (artist_id,album_id));
 
-create table if not exists Tracks (
-	id SERIAL primary key,
-	name varchar (60) not null,
-	duration time not null
-);
+CREATE TABLE IF NOT EXISTS Tracks (id SERIAL PRIMARY KEY, name varchar (60) NOT NULL, duration TIME NOT NULL);
 
-create table if not exists AlbumTracks (
-	track_id INTEGER references Tracks(id),
-	album_id INTEGER references Albums(id),
-	constraint pk2 primary key (track_id, album_id) 
-);
+CREATE TABLE IF NOT EXISTS AlbumTracks (track_id INTEGER REFERENCES Tracks(id), album_id INTEGER REFERENCES Albums(id), CONSTRAINT pk2 PRIMARY KEY (track_id,album_id));
 
-create table if not exists Compilations (
-	track_id INTEGER references Tracks(id),
-	name varchar (80) not null,
-	release_year INTEGER not null,
-	UNIQUE(track_id)
-);
+CREATE TABLE IF NOT EXISTS Compilations (track_id INTEGER REFERENCES Tracks(id),name varchar (80) NOT NULL, release_year INTEGER NOT NULL, UNIQUE(track_id));
