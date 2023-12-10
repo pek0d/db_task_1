@@ -13,5 +13,11 @@ WHERE albums.release_year BETWEEN 2019 AND 2020
 GROUP BY albums.release_year;
 
 -- Средняя продолжительность треков по каждому альбому.
+SELECT albums.name AS album_name, AVG(tracks.duration) AS avg_duration
+FROM albumtracks
+JOIN tracks ON albumtracks.track_id = tracks.id
+JOIN albums ON albumtracks.album_id = albums.id
+GROUP BY albums.name;
 -- Все исполнители, которые не выпустили альбомы в 2020 году.
+
 -- Названия сборников, в которых присутствует конкретный исполнитель (выберите его сами).
