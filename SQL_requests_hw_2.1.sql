@@ -1,4 +1,4 @@
--- наполнение таблицы исполнители
+-- наполнение таблицы artists
 INSERT INTO artists (id, name)
 VALUES (1,'Linkin Park');
 INSERT INTO artists (id, name)
@@ -10,7 +10,7 @@ VALUES (4,'Tiesto');
 INSERT INTO artists (id, name)
 VALUES (5,'Скриптонит');
 
--- наполнение таблицы жанры
+-- наполнение таблицы genres
 INSERT INTO genres (id, name)
 VALUES (1, 'Rock');
 INSERT INTO genres (id, name)
@@ -18,7 +18,7 @@ VALUES (2, 'Pop');
 INSERT INTO genres (id, name)
 VALUES (3, 'Rap');
 
--- наполнение таблицы альбомы
+-- наполнение таблицы albums
 INSERT INTO albums (id, name, release_year)
 VALUES (1, 'Reanimation', 2002);
 INSERT INTO albums (id,name, release_year)
