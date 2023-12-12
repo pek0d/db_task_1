@@ -115,13 +115,26 @@ def find_client(data):
     return result
 
 
-# Создание структуры базы данных
-create_table()
+# Получение информации о клиентах
+def get_client_info():
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT id, first_name, last_name, email FROM clients
+        """
+    )
+    result = cur.fetchall()
+    conn.close()
+    return result
 
-# Примеры использования функций
-add_client("Иван", "Иванов", "ivan@mail.com")
-add_phone(1, "+123456789")
-update_client(1, "Иван", "Петров", "ivan@mail.com", ["+123456789"])
-delete_phone(1, "+123456789")
-delete_client(1)
-print(find_client("ivan@mail.com"))
+
+# create_table()
+# add_client("Xьюго", "Лоскин", "hugo@boss.com")
+# add_client("Бен", "Кеноби", "jd@stars.com")
+# add_phone(2, "+723456732323")
+# update_client(2, "Леон", "Тучков", "ivan@mail.com", ["+723456801"])
+# delete_phone(2, "+723456801")
+# delete_client(2)
+print(get_client_info())  # get_client_id()
+# print(find_client("ivan@mail.com"))
