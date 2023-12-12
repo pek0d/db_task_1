@@ -1,86 +1,62 @@
 -- наполнение таблицы artists
 INSERT INTO artists (id, name)
-VALUES (1,'Linkin Park');
-INSERT INTO artists (id, name)
-VALUES (2,'P.O.D');
-INSERT INTO artists (id, name)
-VALUES (3,'Papa Roach');
-INSERT INTO artists (id, name)
-VALUES (4,'Tiesto');
-INSERT INTO artists (id, name)
-VALUES (5,'Скриптонит');
+VALUES 
+  (1,'Linkin Park'),
+  (2,'P.O.D'),
+  (3,'Joris Voorn'),
+  (4,'Tiesto'),
+  (5,'Скриптонит');
 
 -- наполнение таблицы genres
 INSERT INTO genres (id, name)
-VALUES (1, 'Rock');
-INSERT INTO genres (id, name)
-VALUES (2, 'Pop');
-INSERT INTO genres (id, name)
-VALUES (3, 'Rap');
+VALUES
+  (1, 'Rock'),
+  (2, 'Pop'),
+  (3, 'Dance'),
+  (4, 'Rap');
 
 -- наполнение таблицы albums
 INSERT INTO albums (id, name, release_year)
-VALUES (1, 'Reanimation', 2002);
-INSERT INTO albums (id,name, release_year)
-VALUES (2, 'Hybrid Theory', 2000);
-INSERT INTO albums (id, name, release_year)
-VALUES (3, 'Lovehatetragedy', 2002);
+VALUES
+  (1, 'Reanimation', 2019),
+  (2, 'Hybrid Theory', 2021),
+  (3, 'waterfall', 2018),
+  (4, 'Lovehatetragedy', 2020);
 
 -- наполнение таблицы tracks
 INSERT INTO tracks (id, name, duration)
-VALUES (1,'Crawling', 184);
-INSERT INTO tracks (id, name, duration)
-VALUES (2,'Youth of the nation', 172);
-INSERT INTO tracks (id, name, duration)
-VALUES (3,'She loves me not', 192);
-INSERT INTO tracks (id, name, duration)
-VALUES (4,'Just be', 234);
-INSERT INTO tracks (id, name, duration)
-VALUES (5,'baby mama', 187);
-INSERT INTO tracks (id, name, duration)
-VALUES (6,'Say my name', 194);
+VALUES 
+  (1,'Crawling', 184),
+  (2,'Youth of the nation', 172),
+  (3,'She loves me not', 192),
+  (4,'Just be', 234),
+  (5,'baby mama', 187),
+  (6,'Say my name', 194);
 
 -- наполнение таблицы albumtracks
-INSERT INTO albumtracks
-(track_id, album_id)
-VALUES(1, 1);
-INSERT INTO albumtracks
-(track_id, album_id)
-VALUES(5, 3);
-INSERT INTO albumtracks
-(track_id, album_id)
-VALUES(4, 1);
-INSERT INTO albumtracks
-(track_id, album_id)
-VALUES(6, 3);
-INSERT INTO albumtracks
-(track_id, album_id)
-VALUES(3, 3);
+INSERT INTO albumtracks (track_id, album_id)
+VALUES
+  (1, 2),
+  (2, 3),
+  (3, 4),
+  (4, 3),
+  (5, 3),
+  (6, 1);
 
 -- наполнение таблицы artistgenre
-INSERT INTO artistgenre
-(artist_id, genre_id)
-VALUES(1, 1);
-INSERT INTO artistgenre
-(artist_id, genre_id)
-VALUES(5, 3);
-INSERT INTO artistgenre
-(artist_id, genre_id)
-VALUES(2, 1);
-INSERT INTO artistgenre
-(artist_id, genre_id)
-VALUES(3, 1);
+INSERT INTO artistgenre (artist_id, genre_id)
+VALUES
+  (1, 1),
+  (2, 3),
+  (3, 3),
+  (4, 2),
+  (5, 4);
 
 -- наполнение таблицы Compilations
-INSERT INTO compilations
-(track_id, "name", release_year)
-VALUES(6, 'compilation one', 2020);
-INSERT INTO compilations
-(track_id, "name", release_year)
-VALUES(1, 'serenity', 2018);
-INSERT INTO compilations
-(track_id, "name", release_year)
-VALUES(5, 'dual', 2022);
-INSERT INTO compilations
-(track_id, "name", release_year)
-VALUES(2, 'trinity', 2019);
+INSERT INTO compilations (track_id, "name", release_year)
+VALUES
+  (6, 'compilation one', 2020),
+  (1, 'serenity', 2018),
+  (5, 'dual', 2022),
+  (2, 'trinity', 2019),
+  (3, 'black', 2017);

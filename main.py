@@ -11,15 +11,6 @@ def connect():
     return conn
 
 
-class Client:
-    def __init__(self, id, first_name, last_name, email, phone):
-        self.id = id
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.phone = phone
-
-
 # Создание структуры базы данных
 def create_table():
     conn = connect()
