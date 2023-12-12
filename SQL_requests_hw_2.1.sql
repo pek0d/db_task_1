@@ -52,6 +52,15 @@ VALUES
   (4, 2),
   (5, 4);
 
+-- наполнение таблицы artistalbum
+INSERT INTO artistalbum (artist_id, album_id)
+VALUES
+  (1, 1),
+  (2, 3),
+  (3, 3),
+  (4, 2),
+  (5, 4);
+
 -- наполнение таблицы Compilations
 INSERT INTO compilations (track_id, "name", release_year)
 VALUES

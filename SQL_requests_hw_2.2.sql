@@ -1,5 +1,3 @@
--- Написать SELECT-запросы, которые выведут информацию согласно инструкциям ниже.
-
 -- Название и продолжительность самого длительного трека.
 SELECT name, duration
 FROM tracks
@@ -23,4 +21,4 @@ WHERE name ~ '^[A-Za-z-]+$';
 -- Название треков, которые содержат слово «мой» или «my».
 SELECT name
 FROM tracks
-WHERE name LIKE '%мой%' OR name LIKE '%my%';
+WHERE name ILIKE '%мой%' OR name ILIKE '%my%';
