@@ -1,8 +1,8 @@
 import psycopg2
 
 
-# Установка соединения с базой данных
 def connect():
+    """Установка соединения с базой данных"""
     conn = psycopg2.connect(
         dbname="netology_db",
         user="postgres",
@@ -11,8 +11,8 @@ def connect():
     return conn
 
 
-# Создание структуры базы данных
 def create_table():
+    """Создание таблицы в базе данных"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -30,8 +30,8 @@ def create_table():
     conn.close()
 
 
-# Добавление нового клиента
-def add_client(first_name, last_name, email):
+def add_client(first_name: str, last_name: str, email: str):
+    """Добавление нового клиента"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -44,8 +44,8 @@ def add_client(first_name, last_name, email):
     conn.close()
 
 
-# Добавление телефона для существующего клиента
-def add_phone(client_id, phone):
+def add_phone(client_id: int, phone: str):
+    """Добавление телефона для существующего клиента"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -58,8 +58,10 @@ def add_phone(client_id, phone):
     conn.close()
 
 
-# Изменение данных о клиенте
-def update_client(client_id, first_name, last_name, email, phone):
+def update_client(
+    client_id: int, first_name: str, last_name: str, email: str, phone: str
+):
+    """Обновление информации о существующем клиенте"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -72,8 +74,8 @@ def update_client(client_id, first_name, last_name, email, phone):
     conn.close()
 
 
-# Удаление телефона для существующего клиента
-def delete_phone(client_id, phone):
+def delete_phone(client_id: int, phone: str):
+    """Удаление телефона для существующего клиента"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -86,8 +88,8 @@ def delete_phone(client_id, phone):
     conn.close()
 
 
-# Удаление существующего клиента
-def delete_client(client_id):
+def delete_client(client_id: int):
+    """Удаление существующего клиента"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -100,8 +102,8 @@ def delete_client(client_id):
     conn.close()
 
 
-# Поиск клиента по данным
-def find_client(data):
+def find_client(data: str) -> list:
+    """Поиск клиента по имени, фамилии или почте"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -115,8 +117,8 @@ def find_client(data):
     return result
 
 
-# Получение информации о клиентах
-def get_client_info():
+def get_client_info() -> list:
+    """Получение информации о всех клиентах"""
     conn = connect()
     cur = conn.cursor()
     cur.execute(
@@ -132,9 +134,10 @@ def get_client_info():
 # create_table()
 # add_client("Xьюго", "Лоскин", "hugo@boss.com")
 # add_client("Бен", "Кеноби", "jd@stars.com")
+# add_client("Cэм", "Джексон", "english@home.com")
 # add_phone(2, "+723456732323")
 # update_client(2, "Леон", "Тучков", "ivan@mail.com", ["+723456801"])
 # delete_phone(2, "+723456801")
-# delete_client(2)
-print(get_client_info())  # get_client_id()
+delete_client(2)
+print(get_client_info())
 # print(find_client("ivan@mail.com"))
