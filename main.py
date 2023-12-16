@@ -12,7 +12,6 @@ def create_table(conn):
             last_name TEXT,
             email TEXT UNIQUE,
             phone TEXT[] DEFAULT '{}'::TEXT[]
-]
         )
         """
     )
@@ -30,7 +29,7 @@ def add_client(conn, first_name: str, last_name: str, email: str):
 
 
 def add_phone(conn, client_id: int, phone: str):
-    """Добавление уникального телефона для существующего клиента"""
+    """Добавление телефона для существующего клиента"""
     with conn.cursor() as cur:
         cur.execute(
             """
