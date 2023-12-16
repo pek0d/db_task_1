@@ -91,23 +91,29 @@ def delete_client(conn, client_id: int):
 
 
 def find_client(conn, first_name="%", last_name="%", email="%", phone="%"):
+    """Поиск существующих клиентов по переданным параметрам"""
+    query = "SELECT * FROM clients WHERE "  # Начало запроса
+    conditions = []
+    values = []
+
+    if first_name != "%":
+        conditions.append("first_name LIKE %s")
+        values.append(f"%{first_name}%")
+    if last_name != "%":
+        conditions.append("last_name LIKE %s")
+        values.append(f"%{last_name}%")
+    if email != "%":
+        conditions.append("email LIKE %s")
+        values.append(f"%{email}%")
+    if phone != "%":
+        conditions.append("%s = ANY(phone)")
+        values.append(phone)
+
+    full_query = query + " AND ".join(conditions)
+
     with conn.cursor() as cur:
-        print(
-            f"Query parameters: {first_name}, {last_name}, {email}, {phone}"
-        )  # Отладочный вывод
-        cur.execute(
-            """
-            SELECT *
-            FROM clients
-            WHERE first_name LIKE %s
-            AND last_name LIKE %s
-            AND email LIKE %s
-            AND %s = ANY(phone)
-            """,
-            (f"%{first_name}%", f"%{last_name}%", f"%{email}%", phone),
-        )
+        cur.execute(full_query, values)
         result = cur.fetchall()
-        print(f"SQL query result: {result}")  # Отладочный вывод
         return result
 
 
@@ -135,15 +141,7 @@ with psycopg2.connect(database="netology_db", user="postgres", password="") as c
         # update_client(
         #     conn, 7, first_name="Вася", last_name="Пупкин", email="vue@sue.com"
         # )
-        print(
-            find_client(
-                conn,
-                first_name="Вася",
-                last_name="Пупкин",
-                email="vue@sue.com",
-                phone="+723456732334",
-            )
-        )
+        print(find_client(conn, first_name="Сэм"))
         # delete_phone(2, "+723456801")
         # delete_client(conn, 2)
         # print(get_client_info(conn))
