@@ -98,13 +98,13 @@ def find_client(conn, first_name="%", last_name="%", email="%", phone="%"):
     if first_name != "%":
         conditions.append("first_name LIKE %s")
         values.append(f"%{first_name}%")
-    if last_name != "%":
+    elif last_name != "%":
         conditions.append("last_name LIKE %s")
         values.append(f"%{last_name}%")
-    if email != "%":
+    elif email != "%":
         conditions.append("email LIKE %s")
         values.append(f"%{email}%")
-    if phone != "%":
+    elif phone != "%":
         conditions.append("%s = ANY(phone)")
         values.append(phone)
 
