@@ -11,7 +11,8 @@ def create_table(conn):
             first_name TEXT,
             last_name TEXT,
             email TEXT UNIQUE,
-            phone TEXT[]
+            phone TEXT[] DEFAULT '{}'::TEXT[]
+]
         )
         """
     )
@@ -28,15 +29,26 @@ def add_client(conn, first_name: str, last_name: str, email: str):
     )
 
 
-def add_phone(client_id: int, phone: str):
-    """Добавление телефона для существующего клиента"""
-    cur = conn.cursor()
-    cur.execute(
-        """
-        UPDATE clients SET phone = array_append(phone, %s) WHERE id = %s
-        """,
-        (phone, client_id),
-    )
+def add_phone(conn, client_id: int, phone: str):
+    """Добавление уникального телефона для существующего клиента"""
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT phone FROM clients WHERE id = %s
+            """,
+            (client_id,),
+        )
+        existing_phones = cur.fetchone()[0]  # Получаем текущие телефоны клиента
+        if phone not in existing_phones:  # Проверяем уникальность номера
+            cur.execute(
+                """
+                UPDATE clients SET phone = array_append(phone, %s) WHERE id = %s
+                """,
+                (phone, client_id),
+            )
+            conn.commit()
+        else:
+            print("Phone number already exists for this client")
 
 
 def update_client(conn, client_id, **kwargs):
@@ -78,17 +90,25 @@ def delete_client(conn, client_id: int):
     )
 
 
-def find_client(conn, data: str) -> list:
-    """Поиск клиента по имени, фамилии или почте"""
-    cur = conn.cursor()
-    cur.execute(
-        """
-        SELECT * FROM clients WHERE first_name = %s OR last_name = %s OR email = %s OR %s = ANY(phone)
-        """,
-        (data, data, data, data),
-    )
-    result = cur.fetchall()
-    return result
+def find_client(conn, first_name="%", last_name="%", email="%", phone="%"):
+    with conn.cursor() as cur:
+        print(
+            f"Query parameters: {first_name}, {last_name}, {email}, {phone}"
+        )  # Отладочный вывод
+        cur.execute(
+            """
+            SELECT *
+            FROM clients
+            WHERE first_name LIKE %s
+            AND last_name LIKE %s
+            AND email LIKE %s
+            AND %s = ANY(phone)
+            """,
+            (f"%{first_name}%", f"%{last_name}%", f"%{email}%", phone),
+        )
+        result = cur.fetchall()
+        print(f"SQL query result: {result}")  # Отладочный вывод
+        return result
 
 
 def get_client_info(conn) -> list:
@@ -96,7 +116,7 @@ def get_client_info(conn) -> list:
     cur = conn.cursor()
     cur.execute(
         """
-        SELECT id, first_name, last_name, email FROM clients
+        SELECT * FROM clients
         """
     )
     result = cur.fetchall()
@@ -108,15 +128,23 @@ with psycopg2.connect(database="netology_db", user="postgres", password="") as c
         # create_table()
         # add_client(conn, "Xьюго", "Лоскин", "hugo@boss.com")
         # add_client(conn, "Бен", "Кеноби", "jd@stars.com")
-        add_client(conn, "Cэм", "Джексон", "english@home.com")
-        # add_phone(2, "+723456732323")
+        # add_client(conn, "Cэм", "Джексон", "english@home.com")
+        # add_phone(conn, 7, "+723456732334")
         # update_client(conn, 7, last_name="Чубака")
         # update_client(conn, 7, first_name="Вася")
-        update_client(
-            conn, 7, first_name="Вася", last_name="Пупкин", email="vue@sue.com"
+        # update_client(
+        #     conn, 7, first_name="Вася", last_name="Пупкин", email="vue@sue.com"
+        # )
+        print(
+            find_client(
+                conn,
+                first_name="Вася",
+                last_name="Пупкин",
+                email="vue@sue.com",
+                phone="+723456732334",
+            )
         )
         # delete_phone(2, "+723456801")
         # delete_client(conn, 2)
         # print(get_client_info(conn))
-        # print(find_client("ivan@mail.com"))
 conn.close()
