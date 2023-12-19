@@ -1,4 +1,3 @@
-import sqlalchemy
 import sqlalchemy as sq
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
@@ -66,3 +65,8 @@ class Sale(Base):
 
     def __str__(self):
         return f"{self.id}: {self.price}"
+
+
+def create_tables(engine):
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
