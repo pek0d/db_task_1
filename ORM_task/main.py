@@ -32,7 +32,6 @@ for record in data:
     }[record["model"]]
     session.add(model(id=record["pk"], **record["fields"]))
 
-
 session.commit()
 
 # ввод имени или id издателя
