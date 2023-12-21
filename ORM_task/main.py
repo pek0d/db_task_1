@@ -8,7 +8,6 @@ from settings import db_name, db_user
 
 # подключение к базе
 DSN = "postgresql://%s:@localhost:5432/%s" % (db_user, db_name)
-
 engine = sqlalchemy.create_engine(DSN)
 
 # создание таблиц
